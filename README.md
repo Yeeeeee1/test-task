@@ -1,1 +1,1 @@
-# test-task
+# webpack-boilerplate
