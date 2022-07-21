@@ -1,27 +1,24 @@
-import { getUsers } from "../../services/users/load";
+import { getData } from "../../services/data/load";
 
 class {
   onInput(input) {
-    const { usersData } = input;
-    let pageIndex = -1;
-    let users = [];
+    const { data } = input;
+    let dataset = {};
 
-    if (usersData) {
-      users = usersData.users;
-      pageIndex = usersData.pageIndex;
+    if (data) {
+      dataset = data.dataset;
     }
 
     this.state = {
       loading: false,
-      users: users,
-      pageIndex: pageIndex
+      data: dataset
     };
   }
 
   onMount() {
     this.pending = Promise.resolve();
 
-    if (this.state.users.length === 0) {
+    if (Object.keys(this.state.data).length === 0) {
       this.loadMore();
     }
   }
@@ -34,33 +31,21 @@ class {
     
 
     try {
-      const usersData = await (this.pending = getUsers({ pageIndex: ++state.pageIndex }));
-      state.users = usersData.users;
-      console.log(state.users);
+      const data = await (this.pending = getData(1));
+      state.data = data.dataset;
     } catch (err) {
       console.log("Fetch failed:", err);
     }
 
     state.loading = false;
   }
-
-  handleLoadMoreClick() {
-    this.loadMore();
-  }
-
-  onUpdate() {
-    if (this.state.pageIndex > 0) {
-      const tableContainer = this.getEl("tableContainer");
-      tableContainer.scrollTop = tableContainer.scrollHeight;
-    }
-  }
 }
 
 <div.app-fetch-data>
   <div class="table-container" key="tableContainer">
-    <if(Object.keys(state.users).length)>
+    <if(Object.keys(state.data).length)>
       <table>
-      <for|stock| of=state.users.stock>
+      <for|stock| of=state.data.stock>
         <thead>
           <tr>
             <td>Title</td>
@@ -71,7 +56,6 @@ class {
             <tr>
               <td>${stock.title}</td>
               <td>${stock.price} ${stock.price_currency}</td>
-              <img src='/assets/images/1.jpg' />
             </tr>
         </tbody>
       </for>

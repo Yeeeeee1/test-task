@@ -10,3 +10,8 @@
   max-height: 400px;
   overflow: auto;
 }
+
+.img {
+  width: 100px;
+  height: 100px;
+}
