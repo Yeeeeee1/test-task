@@ -1,9 +1,16 @@
+import img1 from "../../assets/images/1.jpg";
+import img2 from "../../assets/images/2.jpg";
+import img3 from "../../assets/images/3.jpg";
+import img4 from "../../assets/images/4.jpg";
+import img5 from "../../assets/images/5.jpg";
+import img6 from "../../assets/images/6.jpg";
 import { getData } from "../../services/data/load";
 
 class {
   onInput(input) {
     const { data } = input;
     let dataset = {};
+    const images = [img1, img2, img3, img4, img5, img6];
 
     if (data) {
       dataset = data.dataset;
@@ -11,7 +18,8 @@ class {
 
     this.state = {
       loading: false,
-      data: dataset
+      data: dataset,
+      images: images
     };
   }
 
@@ -21,6 +29,8 @@ class {
     if (Object.keys(this.state.data).length === 0) {
       this.loadMore();
     }
+
+    
   }
 
   async loadMore() {
@@ -56,6 +66,7 @@ class {
             <tr>
               <td>${stock.title}</td>
               <td>${stock.price} ${stock.price_currency}</td>
+              <img src=`${state.images[stock.image.match(/\d+/)[0] - 1]}` />
             </tr>
         </tbody>
       </for>
