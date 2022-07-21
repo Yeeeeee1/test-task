@@ -31,10 +31,12 @@ class {
 
     state.loading = true;
     await this.pending;
+    
 
     try {
       const usersData = await (this.pending = getUsers({ pageIndex: ++state.pageIndex }));
-      state.users = state.users.concat(usersData.users);
+      state.users = usersData.users;
+      console.log(state.users);
     } catch (err) {
       console.log("Fetch failed:", err);
     }
@@ -56,33 +58,27 @@ class {
 
 <div.app-fetch-data>
   <div class="table-container" key="tableContainer">
-    <if(state.users.length)>
+    <if(Object.keys(state.users).length)>
       <table>
+      <for|stock| of=state.users.stock>
         <thead>
           <tr>
-            <td>ID</td>
-            <td>Avatar</td>
-            <td>Name</td>
-            <td>Email</td>
+            <td>Title</td>
+            <td>Price</td>
           </tr>
         </thead>
         <tbody>
-          <for|user| of=state.users>
             <tr>
-              <td>${user.id}</td>
-              <td>
-                <img src=user.avatar width=50 height=50/>
-              </td>
-              <td>${user.firstName} ${user.lastName}</td>
-              <td>${user.email}</td>
+              <td>${stock.title}</td>
+              <td>${stock.price} ${stock.price_currency}</td>
+              <img src='/assets/images/1.jpg' />
             </tr>
-          </for>
         </tbody>
+      </for>
+      
+        
       </table>
     </if>
   </div>
-  <app-button
-    label=(state.users.length ? "Load more users" : "Load users")
-    onClick("handleLoadMoreClick")/>
   <span class={ loading: state.loading }/>
 </div>

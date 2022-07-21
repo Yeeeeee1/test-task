@@ -12,7 +12,7 @@ express()
   .use(markoMiddleware()) // Enables res.marko.
   .get("/", indexPage)
   .get("/services/users", usersService)
-  .listen(port, err => {
+  .listen(port, (err) => {
     if (err) {
       throw err;
     }
