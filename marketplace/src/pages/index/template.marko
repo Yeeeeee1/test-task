@@ -1,12 +1,25 @@
-<app-layout>
+class {
+  onCreate() {
+this.state = {output: {}};
+}
+onMount() {
+  console.log(this.state);
+}
+  handleOutput(output) {
+    this.state.output = output;
+  }
+}
+
+<app-layout output=state.output>
   <@head>
-    <title>UI Components Playground</title>
+  
+    
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
       media="all"
       rel="stylesheet"/>
   </@head>
   <@body>
-    <app-main/>
+    <app-main on-output-to-layout('handleOutput') />
   </@body>
 </app-layout>

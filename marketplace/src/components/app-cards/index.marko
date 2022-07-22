@@ -1,0 +1,16 @@
+class {
+    onCreate() {
+        this.state = { data: {} };
+    }
+    onInput(input) {
+        const { data } = input;
+
+        this.state.data = data;
+    }
+}
+
+<div>
+<for|stock| of=state.data.stock>
+    <app-card stock=stock></app-card>
+</for>
+</div>

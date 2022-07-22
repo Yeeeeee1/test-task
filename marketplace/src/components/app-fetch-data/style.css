@@ -6,11 +6,6 @@
   vertical-align: middle;
 }
 
-.app-fetch-data .table-container {
-  max-height: 400px;
-  overflow: auto;
-}
-
 .img {
   width: 100px;
   height: 100px;

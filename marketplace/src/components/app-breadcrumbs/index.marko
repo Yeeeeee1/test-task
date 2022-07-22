@@ -1,0 +1,29 @@
+class {
+    onCreate() {
+        this.state = { data: {} };
+    }
+    onInput(input) {
+        const { data } = input;
+
+        this.state.data = data;
+    }
+}
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+  <for|breadcrumb, index| of=state.data.breadcrumbs>
+  <if(index === state.data.breadcrumbs.length-1)>
+    <li
+      class="is-active"><a  aria-current="page" href=`${breadcrumb.href}`>${breadcrumb.text}</a>
+    </li>     
+  </if><else>
+  <li
+     ><a href=`${breadcrumb.href}`>${breadcrumb.text}</a>
+    </li>     
+  </else>
+  
+  
+    
+  </for>
+  </ul>
+</nav>

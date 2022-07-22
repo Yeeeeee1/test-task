@@ -1,17 +1,35 @@
 import favicon from "./favicon.png";
 
+class {
+  onCreate() {
+    this.state = { output: {} }
+  }
+  onInput(input) {
+    this.state.output = input.output;
+  }
+}
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/png" sizes="32x32" href=favicon>
-    <meta name="description" content="An example application showcasing Webpack & Marko.">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <if(Object.keys(state.output).length)>
+          <title>${state.output.page_meta.title}</title>
+<meta name=`${state.output.page_meta.meta_keywords}` content=`${state.output.page_meta.meta_description}`>
+    </if>
+    
     <${input.head}/>
   </head>
   <body>
-    <sample-header title="Marko UI Components Playground"/>
     <div class="container">
+        <if(Object.keys(state.output).length)>
+
+    <sample-header h1=state.output.page_meta.h1 />
+    </if>
       <main id="main">
         <${input.body}/>
       </main>

@@ -1,0 +1,61 @@
+import img1 from "../../assets/images/1.jpg";
+import img2 from "../../assets/images/2.jpg";
+import img3 from "../../assets/images/3.jpg";
+import img4 from "../../assets/images/4.jpg";
+import img5 from "../../assets/images/5.jpg";
+import img6 from "../../assets/images/6.jpg";
+
+class {
+    onInput(input) {
+      const { stock } = input;
+      const images = [img1, img2, img3, img4, img5, img6];
+        this.state = 
+        {
+          stock: stock,
+        images: images
+         }
+            
+
+    }
+}
+
+<a href=`${state.stock.href}` style="margin: 20px">
+  <div.app-card class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src=`${state.images[state.stock.image.match(/\d+/)[0] - 1]}` alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <a href=`${state.stock.href}`>${state.stock.title}</a>
+        <p class="subtitle is-6">${state.stock.type}</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>
+        price: ${state.stock.price} ${state.stock.price_currency}
+      </p>
+      <p>
+        mileage: ${state.stock.mileage} ${state.stock.mileage_measure}
+      </p>
+      <p>
+        power: ${state.stock.power} ${state.stock.power_measure}
+      </p>
+      <p>
+        axle configuration: ${state.stock.axle_configuration}
+      </p>
+      <p>
+        payload: ${state.stock.payload}
+      </p>
+      <p>
+        gross weight: ${state.stock.gross_weight}
+      </p>
+      <br>
+      <time datetime="2016-1-1">${state.stock.year}</time>
+    </div>
+  </div>
+</div>
+</a>

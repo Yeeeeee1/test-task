@@ -1,0 +1,25 @@
+class {
+    onCreate() {
+        this.state = { data: {} };
+    }
+    onInput(input) {
+        const { data } = input;
+
+        this.state.data = data;
+    }
+}
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+
+    <for|nav| of=state.data.nav>
+        <a class="navbar-item" href=`${nav.href}`>
+        ${nav.text}
+      </a>
+    </for>
+
+      
+      </div>
+    </div>
+</nav>
