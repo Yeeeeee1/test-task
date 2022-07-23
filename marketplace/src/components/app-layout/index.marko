@@ -9,6 +9,12 @@ class {
   }
 }
 
+style {
+  body {
+    width: 1200px;
+  }
+}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,7 +31,7 @@ class {
     <${input.head}/>
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="tt">
         <if(Object.keys(state.output).length)>
 
     <sample-header h1=state.output.page_meta.h1 />
@@ -33,6 +39,10 @@ class {
       <main id="main">
         <${input.body}/>
       </main>
+
+      <app-footer>
+        
+      </app-footer>
     </div>
   </body>
 </html>

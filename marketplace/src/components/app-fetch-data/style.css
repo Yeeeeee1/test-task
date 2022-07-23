@@ -1,12 +1,7 @@
 .app-fetch-data .loading {
-  background-image: url("./loading.svg");
-  width: 64px;
-  height: 64px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.img {
-  width: 100px;
-  height: 100px;
+    background-image: url('./loading.svg');
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    vertical-align: middle;
 }

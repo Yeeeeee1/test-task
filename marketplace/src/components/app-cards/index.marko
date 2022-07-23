@@ -9,7 +9,13 @@ class {
     }
 }
 
-<div>
+style {
+    .cards {
+        width: 100px;
+    }
+}
+
+<div class="cards">
 <for|stock| of=state.data.stock>
     <app-card stock=stock></app-card>
 </for>
