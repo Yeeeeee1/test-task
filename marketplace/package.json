@@ -26,7 +26,7 @@
     },
     "private": true,
     "scripts": {
-        "build": "npm run clear -s && webpack --progress",
+        "build": "npm run clear -s && SET NODE_ENV=production && webpack --progress",
         "dev": "webpack serve",
         "dev:inspect": "INSPECT=1 npm run dev",
         "start": "node dist/main.js",
