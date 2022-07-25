@@ -1,0 +1,1 @@
+{"version":3,"file":"ff2f6187.css","mappings":"AAAA","sources":["webpack://marketplace/./src/components/app-fetch-data/style.css"],"sourcesContent":[".app-fetch-data .loading {\n    background-image: url('./loading.svg');\n    width: 64px;\n    height: 64px;\n    display: inline-block;\n    vertical-align: middle;\n}\n"],"names":[],"sourceRoot":""}
